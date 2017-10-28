@@ -19,7 +19,10 @@
     <packaging>jar</packaging>
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.pl</groupId>
+            <artifactId>pl-tool-dal</artifactId>
+        </dependency>
     </dependencies>
 
 

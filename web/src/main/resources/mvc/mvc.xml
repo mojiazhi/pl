@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+						http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd"
+       default-autowire="byName">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.kili.pita.*"/>
+
+    <!-- vm文件渲染器 -->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+        <property name="cache" value="true"/>
+        <property name="prefix" value="/velocity/"/>
+        <property name="suffix" value=".vm"/>
+        <property name="contentType">
+            <value>text/html;charset=utf-8</value>
+        </property>
+        <property name="layoutUrl" value="/velocity/layout/defaultLayout.vm"/>
+        <property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml"/>
+        <property name="allowSessionOverride" value="true"/>
+        <property name="allowRequestOverride" value="true"/>
+        <property name="exposeSessionAttributes" value="true"/>
+        <property name="requestContextAttribute" value="rc"/>
+        <property name="exposeRequestAttributes" value="true"/>
+    </bean>
+
+    <!-- vm配置文件 -->
+    <bean id="velocityConfig"
+          class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath">
+            <value>/</value>
+        </property>
+        <property name="velocityProperties">
+            <props>
+                <prop key="input.encoding">utf-8</prop>
+                <prop key="output.encoding">utf-8</prop>
+                <prop key="velocimacro.library.autoreload">true</prop>
+                <prop key="file.resource.loader.cache">false</prop>
+                <prop key="velocimacro.library">/velocity/macro/macro.vm</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <!--
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="mappingJacksonHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="mappingJacksonHttpMessageConverter"
+          class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4"/>
+    -->
+
+    <mvc:annotation-driven>
+        <!-- 编码转换 -->
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/plain;charset=UTF-8</value>
+                        <value>text/html;charset=UTF-8</value>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+                <property name="writeAcceptCharset" value="false"/>
+            </bean>
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4"/>
+        </mvc:message-converters>
+
+    </mvc:annotation-driven>
+
+
+    <!-- 页面访问拦截 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**/*.html"/>
+            <mvc:exclude-mapping path="/api/excashier.html"/>
+            <bean class="com.kili.common.web.interceptor.AccessInterceptor">
+                <property name="permissionAcfPath" value="classpath:/pril/permission.acf"/>
+            </bean>
+        </mvc:interceptor>
+
+
+
+        <mvc:interceptor>
+            <mvc:mapping path="/**/*.html"/>
+            <bean id="permissionInterceptor" class="com.kili.common.web.interceptor.PermissionInterceptor"/>
+        </mvc:interceptor>
+
+    </mvc:interceptors>
+
+
+
+</beans>
