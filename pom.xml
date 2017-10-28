@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.kili.common</groupId>
-    <artifactId>kili-common</artifactId>
+    <groupId>com.pl</groupId>
+    <artifactId>pl-tool</artifactId>
     <version>1.0</version>
 
-    <name>kili-common</name>
-    <url>http://www.lipapay.com/</url>
-    <description>kili-common</description>
+    <name>pl-tool</name>
+    <url>http://www.pl.com/</url>
+    <description>pl-tool</description>
 
     <packaging>pom</packaging>
 
@@ -17,6 +17,12 @@
         <dependencies>
 	</dependencies>
  </dependencyManagement>
+
+   <modules>
+        <module>dal</module>
+        <module>biz</module>
+        <module>web</module>
+    </modules>
 
 
 </project>
