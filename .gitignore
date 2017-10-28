@@ -1,0 +1,25 @@
+target
+bin
+out
+.class
+
+# idea, eclipse
+*.iml
+.idea
+.eclipse
+
+# logger file
+logs
+logger
+*.log
+
+# VM crash logs
+hs_err_pid*
+
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
