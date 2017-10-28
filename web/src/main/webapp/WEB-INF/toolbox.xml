@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toolbox>
+    <tool>
+        <key>config</key>
+        <scope>application</scope>
+        <class>com.kili.lipapay.common.util.config.RunConfig</class>
+    </tool>
+
+    <tool>
+        <key>stringUtil</key>
+        <scope>application</scope>
+        <class>com.kili.common.util.StringUtil</class>
+    </tool>
+
+    <tool>
+        <key>operationContextHolder</key>
+        <scope>application</scope>
+        <class>com.kili.common.web.holder.OperationContextHolder</class>
+    </tool>
+
+    <tool>
+        <key>securityContextHolder</key>
+        <scope>application</scope>
+        <class>com.kili.common.web.holder.SecurityContextHolder</class>
+    </tool>
+
+</toolbox>

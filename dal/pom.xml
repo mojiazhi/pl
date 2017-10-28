@@ -129,6 +129,31 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>io.leopard</groupId>
+            <artifactId>leopard-captcha</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kili.common</groupId>
+            <artifactId>kili-common-lang</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kili.common</groupId>
+            <artifactId>kili-common-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kili.common</groupId>
+            <artifactId>kili-common-core</artifactId>
+        </dependency>
     </dependencies>
 
 
