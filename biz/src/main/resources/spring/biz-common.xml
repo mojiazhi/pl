@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+    <!-- 将多个配置文件位置放到列表中 -->
+    <bean id="systemProperties"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>file:${user.home}/tool.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="configInitialize" class="com.pl.biz.common.RunConfigInitialize">
+        <property name="run_mode" value="${run_mode}"/>
+        <property name="app_url" value="${app_url}"/>
+        <property name="static_url" value="${static_url}"/>
+    </bean>
+</beans>

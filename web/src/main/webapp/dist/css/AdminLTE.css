@@ -352,13 +352,13 @@ a:focus {
 .main-header .logo .logo-lg {
     height: 100%;
     display: block;
-    background: url("../../img/lipapay-logo-s1.png") no-repeat center center;
+    /*background: url("../../img/lipapay-logo-s1.png") no-repeat center center;*/
 }
 
 .main-header .logo .logo-mini {
     height: 100%;
     display: none;
-    background: url("../../img/lipapay-logo-s2.png") no-repeat center center;
+    /*background: url("../../img/lipapay-logo-s2.png") no-repeat center center;*/
 }
 
 .main-header .navbar-brand {
@@ -485,9 +485,9 @@ a:focus {
 }
 
 /*
- * Component: Sidebar
- * ------------------
- */
+* Component: Sidebar
+* ------------------
+*/
 .main-sidebar,
 .left-side {
     position: absolute;
@@ -3861,7 +3861,7 @@ table.text-center th {
     margin-bottom: 25px;
     font-weight: 300;
     text-indent: 9999em;
-    background: url("../../img/Lipapay-logo-m.png") no-repeat center center;
+    /**background: url("../../img/Lipapay-logo-m.png") no-repeat center center;**/
 }
 
 .login-logo a,
@@ -5920,33 +5920,131 @@ table.text-center th {
     height: 60px;
 }
 
-#root{margin:10px;}
-#root li{ list-style: none; position: relative;}
+#root {
+    margin: 10px;
+}
+
+#root li {
+    list-style: none;
+    position: relative;
+}
+
 /*#root li label a{ height:25px;}*/
-#root li label{padding-left:40px; height:25px;}
-#root input[type="checkbox"]{margin:0 !important;}
-#root .rem{padding-left:16px;}
+#root li label {
+    padding-left: 40px;
+    height: 25px;
+}
+
+#root input[type="checkbox"] {
+    margin: 0 !important;
+}
+
+#root .rem {
+    padding-left: 16px;
+}
+
 /*#root li{background:url(../Images/treeline.jpg) repeat-y;}*/
-#root li span{display:inline-block;height:25px;vertical-align:middle;width:34px;cursor:pointer;}
-#root li .add{background:url(../../img/treept.jpg) no-repeat;}
-#root li .ren{background:url(../../img/treert.jpg) no-repeat;}
-#root li .two span{display:inline-block;height:25px;vertical-align:middle;width:40px;cursor:pointer;}
-#root li .two .add, #root li .two li .two li .add{background:url(../../img/treeplus.jpg) no-repeat;}
-#root li .two li.max .add, #root li .two li .two li.max .add{background:url(../../img/treeplus1.jpg) no-repeat;}
-#root li{background:url(../../img/treeline.jpg) repeat-y;}
+#root li span {
+    display: inline-block;
+    height: 25px;
+    vertical-align: middle;
+    width: 34px;
+    cursor: pointer;
+}
+
+#root li .add {
+    background: url(../../img/treept.jpg) no-repeat;
+}
+
+#root li .ren {
+    background: url(../../img/treert.jpg) no-repeat;
+}
+
+#root li .two span {
+    display: inline-block;
+    height: 25px;
+    vertical-align: middle;
+    width: 40px;
+    cursor: pointer;
+}
+
+#root li .two .add, #root li .two li .two li .add {
+    background: url(../../img/treeplus.jpg) no-repeat;
+}
+
+#root li .two li.max .add, #root li .two li .two li.max .add {
+    background: url(../../img/treeplus1.jpg) no-repeat;
+}
+
+#root li {
+    background: url(../../img/treeline.jpg) repeat-y;
+}
+
 /*#root li .two li.max{background:none!important;}*/
-#root li .two li.one .ren{}
-#root li .two li .ren{background:url(../../img/treeren1.jpg) no-repeat;}
-#root li .two li{background:url(../../img/treeline.jpg) repeat-y;}
+#root li .two li.one .ren {
+}
+
+#root li .two li .ren {
+    background: url(../../img/treeren1.jpg) no-repeat;
+}
+
+#root li .two li {
+    background: url(../../img/treeline.jpg) repeat-y;
+}
 
 /*#root li .two li .two .ren{background:url(../Images/treeren.jpg) no-repeat;}*/
-#root li .two li i{ position:absolute; top:0; left:-1px;background:url(../../img/treenext.jpg) no-repeat;display:inline-block;height:25px;vertical-align:middle;width:40px;}
-#root li .two li .two li .two li.max i{background:url(../../img/treenext1.jpg) no-repeat;}
-#root li{white-space:nowrap;}
-#root li span{  position:absolute; top:0; left:-1px;}
-#root li a{color:#666666;padding-left:5px;outline:none;blr:expression(this.onFocus=this.blur());white-space:nowrap;}
-.padding-0{padding-left:0;padding-right:0;}
-#root li input{vertical-align:middle;margin-left:5px;}
-#root .two{padding-left:20px;display:block;}
-#root label{margin-bottom:0;}
-#root > .two > li:last-child > .add, #root > .two > li > .two > li:last-child > .add{background:url(../../img/treeplast.jpg) no-repeat;}
+#root li .two li i {
+    position: absolute;
+    top: 0;
+    left: -1px;
+    background: url(../../img/treenext.jpg) no-repeat;
+    display: inline-block;
+    height: 25px;
+    vertical-align: middle;
+    width: 40px;
+}
+
+#root li .two li .two li .two li.max i {
+    background: url(../../img/treenext1.jpg) no-repeat;
+}
+
+#root li {
+    white-space: nowrap;
+}
+
+#root li span {
+    position: absolute;
+    top: 0;
+    left: -1px;
+}
+
+#root li a {
+    color: #666666;
+    padding-left: 5px;
+    outline: none;
+    blr: expression(this.onFocus=this.blur());
+    white-space: nowrap;
+}
+
+.padding-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#root li input {
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+#root .two {
+    padding-left: 20px;
+    display: block;
+}
+
+#root label {
+    margin-bottom: 0;
+}
+
+#root > .two > li:last-child > .add, #root > .two > li > .two > li:last-child > .add {
+    background: url(../../img/treeplast.jpg) no-repeat;
+}

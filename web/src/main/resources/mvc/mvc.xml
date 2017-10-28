@@ -9,7 +9,7 @@
        default-autowire="byName">
 
     <context:annotation-config/>
-    <context:component-scan base-package="com.kili.pita.*"/>
+    <context:component-scan base-package="com.pl.*"/>
 
     <!-- vm文件渲染器 -->
     <bean id="viewResolver"
@@ -20,7 +20,7 @@
         <property name="contentType">
             <value>text/html;charset=utf-8</value>
         </property>
-        <property name="layoutUrl" value="/velocity/layout/defaultLayout.vm"/>
+        <property name="layoutUrl" value="/velocity/layout/default.vm"/>
         <property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml"/>
         <property name="allowSessionOverride" value="true"/>
         <property name="allowRequestOverride" value="true"/>
@@ -78,7 +78,7 @@
     </mvc:annotation-driven>
 
 
-    <!-- 页面访问拦截 -->
+    <!-- 页面访问拦截
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**/*.html"/>
@@ -89,7 +89,6 @@
         </mvc:interceptor>
 
 
-
         <mvc:interceptor>
             <mvc:mapping path="/**/*.html"/>
             <bean id="permissionInterceptor" class="com.kili.common.web.interceptor.PermissionInterceptor"/>
@@ -97,6 +96,7 @@
 
     </mvc:interceptors>
 
+-->
 
 
 </beans>

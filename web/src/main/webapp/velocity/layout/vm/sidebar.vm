@@ -1,0 +1,38 @@
+<aside class="main-sidebar">
+    <section class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="treeview active">
+                <a data-url="#">
+                    <i class="fa fa-dashboard"></i> <span>人事管理</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="active" onclick="changeColor(this)">
+
+                        <a class="navigation" data-url="admin/user/list"><i class="fa fa-circle-o"></i>
+                            人工账单导入
+                        </a>
+
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</aside>
+
+<script type="text/javascript">
+    $(function () {
+        $(".navigation").each(function (i, item) {
+            var url = $(item).attr("data-url");
+            if (url) {
+                $(item).click(function () {
+
+                    $("#panelTitle").html($(item).html());
+                });
+            }
+        });
+    })
+    function changeColor(obj) {
+        $(".treeview-menu li").removeClass();
+        $(obj).addClass("active");
+    }
+</script>
