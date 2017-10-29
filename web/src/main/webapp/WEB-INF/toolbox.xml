@@ -3,7 +3,7 @@
     <tool>
         <key>config</key>
         <scope>application</scope>
-        <class>com.kili.lipapay.common.util.config.RunConfig</class>
+        <class>com.pl.biz.common.RunConfig</class>
     </tool>
 
     <tool>

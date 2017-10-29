@@ -22,8 +22,9 @@ public class LogoutController {
     /**
      * @return
      */
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.GET)
     public BaseAjaxResponse<Void> doPost() {
+
         return null;
     }
 }

@@ -173,7 +173,7 @@
             <dependency>
                 <groupId>com.kili.common</groupId>
                 <artifactId>kili-common-lang</artifactId>
-                <version>1.0.0-20170907</version>
+                <version>1.0.0-20170922</version>
             </dependency>
 
             <dependency>
@@ -189,24 +189,18 @@
             </dependency>
 
 
-            <!-- slf4j dependecy -->
+            <!--logging: slf4j + logback-->
             <dependency>
                 <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
+                <artifactId>jcl-over-slf4j</artifactId>
                 <version>1.7.25</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-jdk14</artifactId>
-                    </exclusion>
-                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>1.2.3</version>
             </dependency>
 
-            <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>1.2.17</version>
-            </dependency>
 
             <dependency>
                 <groupId>io.leopard</groupId>
