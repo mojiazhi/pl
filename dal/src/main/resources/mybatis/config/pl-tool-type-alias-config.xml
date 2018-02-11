@@ -1,0 +1,12 @@
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <package name="com.pl.dal.dao"/>
+        <package name="com.kili.lipapay.dal.mybatis.typehandler"/>
+    </typeAliases>
+
+    <typeHandlers>
+        <package name="com.kili.lipapay.dal.mybatis.typehandler"/>
+    </typeHandlers>
+
+</configuration>

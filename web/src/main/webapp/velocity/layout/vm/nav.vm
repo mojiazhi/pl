@@ -15,8 +15,6 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-
-                <UserDAOUser Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="$!config.staticUrl/img/lipapay-logo-s2.png" class="user-image" alt="User Image">
@@ -37,10 +35,10 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" id="changePassword" class="btn btn-default btn-flat">Change Password</a>
+                                <a href="#" id="changePassword" class="btn btn-default btn-flat">修改密码</a>
                             </div>
                             <div class="pull-right">
-                                <a href="$!config.appUrl/logout.html" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="$!config.appUrl/logout.html" class="btn btn-default btn-flat">登  出</a>
                             </div>
                         </li>
                     </ul>

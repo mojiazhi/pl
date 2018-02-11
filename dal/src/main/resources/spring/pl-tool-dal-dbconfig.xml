@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+
+
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+    <context:annotation-config/>
+    <context:component-scan base-package="com.pl.dal.dao.*"/>
+
+
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="url" value="${db_url}"/>
+        <property name="username" value="${db_user}"/>
+        <property name="password" value="${db_pwd}"/>
+        <property name="proxyFilters">
+            <list>
+                <ref bean="stat-filter" />
+                <ref bean="log-filter"/>
+            </list>
+        </property>
+        <property name="maxActive" value="50"/>
+        <property name="initialSize" value="2"/>
+        <property name="maxWait" value="60000"/>
+        <property name="minIdle" value="2"/>
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+    </bean>
+
+    <bean id="stat-filter" class="com.alibaba.druid.filter.stat.StatFilter">
+        <property name="slowSqlMillis" value="10000" />
+        <property name="logSlowSql" value="true" />
+        <property name="mergeSql" value="true" />
+    </bean>
+    <bean id="wall-filter" class="com.alibaba.druid.wall.WallFilter">
+        <property name="dbType" value="mysql" />
+        <property name="logViolation" value="true"/>
+        <property name="throwException" value="false"/>
+    </bean>
+    <bean id="log-filter" class="com.alibaba.druid.filter.logging.Slf4jLogFilter">
+        <property name="resultSetLogEnabled" value="false" />
+        <property name="resultSetLogErrorEnabled" value="true" />
+        <property name="connectionLogErrorEnabled" value="true"/>
+        <property name="statementLogErrorEnabled" value="true"/>
+    </bean>
+
+
+    <!-- 事务控制 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="rollbackOnCommitFailure" value="true"/>
+        <property name="failEarlyOnGlobalRollbackOnly" value="true"/>
+    </bean>
+    <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>
+        <!-- 隔离级别 -->
+        <property name="isolationLevelName" value="ISOLATION_READ_COMMITTED"/>
+        <property name="propagationBehaviorName" value="PROPAGATION_REQUIRED"/>
+    </bean>
+
+    <!--mybatis与Spring整合 开始 -->
+    <bean id="sqlSessionFactory" name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:mybatis/config/pl-tool-type-alias-config.xml"/>
+        <property name="mapperLocations" value="classpath*:mybatis/sqlmapping/*mapping.xml"/>
+    </bean>
+
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
+        <property name="basePackage" value="com.pl.dal.typehandler"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+</beans>
+

@@ -2,7 +2,7 @@
     <div class="pull-right hidden-xs">
         <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2014-2017 <a href="#">George</a>.</strong>
+    <strong>Copyright &copy; 2017-2018 <a href="#">George</a>.</strong>
 </footer>
 
 
@@ -55,7 +55,7 @@
         var openReloginDialog = function (url) {
             layer.open({
                 title: false,
-                content: "Your session is inactive, please login again.",
+                content: "登陆超时，请重新登陆.",
                 closeBtn: 0,
                 btn: 'Login',
                 yes: function () {

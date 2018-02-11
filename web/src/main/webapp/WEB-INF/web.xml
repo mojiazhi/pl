@@ -79,7 +79,7 @@
         <filter-class>com.kili.common.web.filter.SecurityContextFilter</filter-class>
         <init-param>
             <param-name>securitySessionId</param-name>
-            <param-value>pl-tools-session</param-value>
+            <param-value>pl-tools-session-id</param-value>
         </init-param>
         <init-param>
             <param-name>excludeMapping</param-name>

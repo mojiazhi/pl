@@ -97,7 +97,7 @@
                 if (resp.result === 200) {
                     location.href = '$!runConfig.appUrl/index.html';
                 } else {
-                    $('.login-box-msg').html(resp.msg);
+                    $('.login-box-msg').html(resp.errorMsg);
                 }
             }, 'json');
             return false;

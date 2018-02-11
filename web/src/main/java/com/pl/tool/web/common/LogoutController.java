@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 用户登出
  *
@@ -22,8 +24,8 @@ public class LogoutController {
     /**
      * @return
      */
-    @RequestMapping(method = RequestMethod.GET)
-    public BaseAjaxResponse<Void> doPost() {
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
+    public BaseAjaxResponse<Void> doPost(HttpServletRequest request) {
 
         return null;
     }

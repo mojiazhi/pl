@@ -23,7 +23,6 @@
             <groupId>com.pl</groupId>
             <artifactId>pl-tool-biz</artifactId>
         </dependency>
-
     </dependencies>
 
 

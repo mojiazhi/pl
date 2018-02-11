@@ -14,11 +14,20 @@ import java.util.List;
  */
 public class BaseAjaxResponse<T> {
     private String respCode = "200";
-    private boolean success;
-    private String errorCode;
-    private String errorMsg;
+    private boolean success = false;
+    private String errorCode = "SYSTEM_ERROR";
+    private String errorMsg = "系统错误";
     private T data;
     private List<T> listDate;
+
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
 
     /**
      * Getter method for property <tt>respCode</tt>

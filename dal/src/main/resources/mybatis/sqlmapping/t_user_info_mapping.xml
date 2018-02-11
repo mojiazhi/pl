@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kili.lipapay.dal.mybatis.dao.UserInfoDAO">
+
+    <!-- 通用查询结果列-->
+    <sql id="t_user_info_select_column">
+        id,user_type as "userType",country_code as "countryCode",city,name,sex,first_name as firstName,last_name as lastName,real_name as "realName",bind_phone as "bindPhone",bind_email as "bindEmail",is_phone_auth as "isPhoneAuth",is_email_auth as "isEmailAuth",is_real_name_auth as "isRealNameAuth",
+        create_time as "createTime",update_time as "updateTime",status,remark,version
+    </sql>
+
+    <!-- 查询（根据主键ID查询） -->
+    <select id="queryById" resultType="userInfoDO" parameterType="String">
+        SELECT
+        <include refid="t_user_info_select_column"/>
+        FROM t_user_info
+        WHERE id = #{id}
+    </select>
+
+    <!--删除：根据主键ID修改数据状态-->
+    <delete id="deleteById" parameterType="String">
+        update FROM t_user_info set status = '-1' ,version=uuid(),update_time = UNIX_TIMESTAMP(NOW())
+        WHERE id = #{id}
+        <if test="version != null and  version != '' ">
+            and version = #{version}
+        </if>
+    </delete>
+
+    <!-- 添加 -->
+    <insert id="insert" parameterType="userInfoDO" useGeneratedKeys="true" keyProperty="id" flushCache="false">
+        INSERT INTO t_user_info
+        ( id,user_type,country_code,city,name,sex,real_name,bind_phone,bind_email,is_phone_auth,is_email_auth,is_real_name_auth,
+        create_time,update_time,status,remark,version)
+        VALUES
+        (#{id},#{userType},#{countryCode},#{city},#{name},#{sex},#{realName},#{bindPhone},#{bindEmail},#{isPhoneAuth},#{isEmailAuth},#{isRealNameAuth},
+        UNIX_TIMESTAMP(NOW()),UNIX_TIMESTAMP(NOW()),#{status},#{remark},UUID())
+    </insert>
+
+    <!-- 修 改-->
+    <update id="update" parameterType="userInfoDO">
+        UPDATE t_user_info
+        <set>
+
+            <if test="realName != null and  realName != '' ">
+                real_name = #{realName},
+            </if>
+            <if test="bindPhone != null and  bindPhone != '' ">
+                bind_phone = #{bindPhone},
+            </if>
+            <if test="bindEmail != null and  bindEmail != '' ">
+                bind_email = #{bindEmail},
+            </if>
+            <if test="name != null and  name != '' ">
+                name = #{name},
+            </if>
+            <if test="firstName != null and  firstName != '' ">
+                first_Name = #{firstName},
+            </if>
+            <if test="lastName != null and  lastName != '' ">
+                last_name = #{lastName},
+            </if>
+            <if test="status != null and  status != '' ">
+                status = #{status},
+            </if>
+            <if test="countryCode != null and  countryCode != '' ">
+                country_code = #{countryCode},
+            </if>
+            <if test="city != null and  city != '' ">
+                city = #{city},
+            </if>
+            <if test="sex != null and  sex != '' ">
+                sex = #{sex},
+            </if>
+            <if test="remark != null and  remark != '' ">
+                remark = #{remark},
+            </if>
+            <if test="isPhoneAuth != null and  isPhoneAuth != '' ">
+                is_Phone_Auth = #{isPhoneAuth},
+            </if>
+            <if test="isEmailAuth != null and  isEmailAuth != '' ">
+                is_Email_Auth = #{isEmailAuth},
+            </if>
+            <if test="isRealNameAuth != null and  isRealNameAuth != '' ">
+                is_Real_Name_Auth = #{isRealNameAuth},
+            </if>
+        </set>
+        ,update_time=UNIX_TIMESTAMP(NOW()),version=UUID() WHERE id = #{id} and version = #{version}
+    </update>
+
+
+
+</mapper>
