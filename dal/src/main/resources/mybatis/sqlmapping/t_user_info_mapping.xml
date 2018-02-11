@@ -3,10 +3,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kili.lipapay.dal.mybatis.dao.UserInfoDAO">
 
+    <resultMap id="userDO" type="com.pl.dal.dataobject.UserDO">
+        <id property="id" column="id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="loginName" column="login_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="userName" column="user_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="password" column="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="userStatus" column="user_status" typeHandler="userStatusTypeHandler"/>
+        <result property="empNo" column="emp_no" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="version" column="version" javaType="java.lang.String" jdbcType="VARCHAR"/>
+    </resultMap>
+
     <!-- 通用查询结果列-->
     <sql id="t_user_info_select_column">
-        id,user_type as "userType",country_code as "countryCode",city,name,sex,first_name as firstName,last_name as lastName,real_name as "realName",bind_phone as "bindPhone",bind_email as "bindEmail",is_phone_auth as "isPhoneAuth",is_email_auth as "isEmailAuth",is_real_name_auth as "isRealNameAuth",
-        create_time as "createTime",update_time as "updateTime",status,remark,version
+        id,login_name,user_name,password,user_status,emp_no,create_time,update_time,version
     </sql>
 
     <!-- 查询（根据主键ID查询） -->

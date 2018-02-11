@@ -11,8 +11,16 @@ public class UserDO extends BaseDO<String> {
     private String loginName;
     private String password;
     private String userName;
+    private String userStatus;
     private String empNo;
 
+    public String getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(String userStatus) {
+        this.userStatus = userStatus;
+    }
 
     public String getLoginName() {
         return loginName;
